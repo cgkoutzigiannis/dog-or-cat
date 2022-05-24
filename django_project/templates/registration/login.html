@@ -1,8 +1,57 @@
-{% extends "base.html" %} {% block title %}Log In{% endblock title %} 
-{% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DogOrCat - Login
+        </title>
+        <link type="text/css" rel="stylesheet" href="{% static 'login-styling.css' %}">
+        <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/login-styling.css' %}">
+    </head>
+    <body>
+        <div class="animal-photos-bg">
+            <!-- <div>
+                <button class="dog-button">
+                    <div class="paw-hover">
+                        <img src="{% static 'resources/paw.png' %}">
+                    </div>
+                    Dog
+                </button>
+                <button class="cat-button">
+                    Cat
+                    <div class="paw-hover">
+                        <img src="{% static 'resources/paw.png' %}">
+                    </div>
+                </button>
+            </div> -->
+        </div>
+
+        <div class="login-form-container">
+            <div class="logo"></div><br><br>
+            <form method="POST" class="login">
+                {% csrf_token %}
+                <div class="input-field-wrapper">
+                    <label class="username-label">Username</label> <br>
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="input-field-wrapper">
+                    <label>Password</label> <br>
+                    <input type="password" name="password" placeholder="Password">
+                </div><br>
+                <a href="#forgot-password" class="forgot-password-link">Forgot your password?</a> <br><br>
+                <div class="remember-user">
+                    <input type="checkbox" id="remember" name="remember" value="remember">
+                    <label for="remember">Remember Me</label>
+                </div> <br>
+                <button type="submit">Login</button>
+            </form>
+            <br>
+            
+            <div class="create-account">
+                New here? <a href="{% url 'signup' %}">Create an account</a>
+            </div>
+        </div>
+
+        <script src="{% static 'js/image-changer.js' %}"></script>
+    </body>
+</html>

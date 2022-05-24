@@ -1,12 +1,79 @@
-{% extends "base.html" %} 
-{% block title %}Home{% endblock title %} 
-{% block content %} 
-{% if user.is_authenticated %} Hi {{ user.username }}!
-    <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a> |
-    <a href="{% url 'signup' %}">Sign Up</a>
-{% endif %}
-<a href="{% url 'game' %}">Game</a>
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DogOrCat - Home
+        </title>
+        <link type="text/css" rel="stylesheet" href="{% static 'home-styling.css' %}">
+        <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/home-styling.css' %}">
+    </head>
+    {% if user.is_authenticated %}
+    <body>
+        <div class="logo"></div>
+        <div class="user">
+            Username
+            <div class="other-options">
+                <div>
+                    <img src="{% static 'resources/settings.png' %}">
+                </div>
+                <div>
+                    <img src="{% static 'resources/profile.png' %}">
+                </div>
+                <div>
+                    <a href="{% url 'logout' %}">
+                        <img src="{% static 'resources/logout.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <img src="{% static 'resources/bone.png"> -->
+
+        <div class="menu">
+            <div class="selections">
+                <a href="{% url 'game' %}">
+                    <div class="menu-button">
+                        Single Player
+                        <div class="selection-logos">
+                            <img src="{% static 'resources/white-paw.png' %}">
+                        </div>
+                    </div> 
+                </a>
+                <br>
+                <div class="menu-button">
+                    Multiplayer
+                    <div class="selection-logos">
+                        <img src="{% static 'resources/white-paw.png' %}">
+                        <img src="{% static 'resources/white-paw.png' %}">
+                    </div>
+                </div> <br>
+                <div class="menu-button">
+                    Leaderboard
+                    <div class="selection-logos">
+                        <img src="{% static 'resources/trophie.png' %}">
+                    </div>
+                </div> <br>
+                <div class="menu-button">
+                    About
+                    <div class="selection-logos">
+                        <img src="{% static 'resources/about.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sneak-image sneak-dog">
+            <img src="{% static 'resources/dog-sneak.png' %}">
+        </div>
+        <div class="sneak-image sneak-cat">
+            <img src="{% static 'resources/cat-sneak.png' %}">
+        </div>
+    </body>
+
+    {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a> |
+        <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+</html>

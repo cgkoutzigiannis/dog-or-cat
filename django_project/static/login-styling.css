@@ -1,0 +1,224 @@
+:root {
+    --background: #fafafa;
+    --login-container-background: rgba(255,255,255, 0.6);
+    --form-border-radius: 6px;
+    --border-rgba: rgba(0, 0, 0, 0.15);
+    --logo-main-blue-color: #270949;
+    --logo-secondary-blue-color: #4654a3;
+
+    --form-width: 280px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* flex-direction: column; */
+
+    background: var(--background);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.logo {
+    width: 20%;
+    height: 9rem;
+    background-image: url(../static/resources/LOGO.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.login-form-container {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100vh;
+    /* margin-left: auto; */
+    /* margin-top: 10%; */
+}
+
+.animal-photos-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 50%;
+    height: 100vh;
+    margin-right: auto;
+
+    transition-duration: 3s;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-color: white;
+
+    pointer-events: none;
+}
+
+.animal-photos-bg > div {
+    position: absolute;
+    width: 100%;
+    transform: translate(-50%, 0);
+    left: 50%;
+    bottom: 10%;
+    text-align: center;
+}
+
+/* .dog-button, .cat-button {
+    position: relative;
+    border: 1px solid var(--border-rgba);
+    border-radius: 10px;
+
+    padding: 15px 30px;
+
+    font-size: 2.8rem;
+    color: white;
+    overflow: hidden;
+}
+
+.dog-button {
+    background-color: var(--logo-main-blue-color);
+}
+
+.cat-button {
+    background-color: var(--logo-secondary-blue-color);
+}
+
+.paw-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    opacity: 0;
+}
+
+.paw-hover img{
+    height: 60%;
+}
+
+.dog-button .paw-hover {
+    animation: button-hover 10s linear 0s infinite;
+}
+
+.cat-button .paw-hover {
+    animation: button-hover 10s linear 4s infinite;
+} */
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 60px;
+    width: var(--form-width);
+
+    border: solid var(--border-rgba) 1px;
+    border-radius: var(--form-border-radius);
+    background-color: white;
+}
+
+.input-field-wrapper {
+    width: 100%;
+}
+
+.input-field-wrapper > label {
+    font-size: 0.66rem;
+    /* margin-right: auto; */
+    visibility: hidden;
+}
+
+.forgot-password-link {
+    font-size: 0.8rem;
+}
+
+.remember-user * {
+    cursor: pointer;
+}
+
+.remember-user, .forgot-password-link {
+    margin-right: auto;
+    width: 100%;
+}
+
+.login input[type = text], input[type = password] {
+    font-size: 1.2rem;
+    background-color: var(--background);
+    border-radius: var(--form-border-radius);
+    padding: 5px 10px;
+    border: 1px solid var(--border-rgba);
+    width: calc(100% - 20px);
+}
+
+.input-field-wrapper:focus-within > label{
+    visibility: visible;
+}
+
+.input-field-wrapper:focus-within > input::placeholder {
+    color: var(--background);
+}
+
+.login:focus-within{
+    border:2px solid var(--logo-secondary-blue-color);
+}
+
+
+.login button {
+    font-size: 1.15rem;
+    width: 40%;
+    cursor: pointer;
+    font-weight: bold;
+
+    border-radius: var(--form-border-radius);
+    border:none;
+
+    padding: 3px;
+
+    background-color: var(--logo-secondary-blue-color);
+    color: white;
+}
+
+.create-account {
+    padding: 25px 60px;
+    text-align: center;
+    border: solid var(--border-rgba) 1px;
+    border-radius: var(--form-border-radius);
+    width: var(--form-width);
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: var(--logo-secondary-blue-color);
+    font-weight: bolder;
+}
+
+a:hover {
+    color: var(--logo-main-blue-color);
+}
+
+@keyframes button-hover {
+    0%{
+        opacity: 0;
+    }
+    10%, 15% {
+        opacity: 1;
+    }
+    25%, 100%{
+        opacity: 0;
+    }
+    
+}

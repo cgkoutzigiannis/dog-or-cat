@@ -1,8 +1,41 @@
-{% extends "base.html" %} {% block title %}Sign Up{% endblock title %} 
-{% block content %}
-<h2>Sign Up</h2>
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Sign Up</button>
-</form>
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            DogOrCat - Create Account
+        </title>
+        <link type="text/css" rel="stylesheet" href="{% static 'signup-styling.css' %}">
+        <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/signup-styling.css' %}">
+    </head>
+    <body>
+        <div class="login-form-container">
+            <div class="logo"></div><br><br>
+            <form method="POST" class="login">
+                {% csrf_token %}
+                <div class="input-field-wrapper">
+                    <label class="username-label">Username</label> <br>
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="input-field-wrapper">
+                    <label class="username-label">Email</label> <br>
+                    <input type="text" name="email" placeholder="Email">
+                </div>
+                <div class="input-field-wrapper">
+                    <label>Password</label> <br>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="input-field-wrapper">
+                    <label class="username-label">Repeat Password</label> <br>
+                    <input type="password" name="rep-password" placeholder="Repeat Password">
+                </div><br>
+                <button type="submit">Sign up</button>
+            </form>
+            <br>
+                    
+            <div class="create-account">
+                Already have an account? <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </body>
+</html>
