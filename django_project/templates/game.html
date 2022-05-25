@@ -1,15 +1,57 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-</head>
-<body>
-    <div id="image"></div>
-    <div id="buttons"></div>
-    <script src="{% static 'js/get_question.js' %}"></script>
-</body>
+<html>
+    <head>
+        <title>
+            DogOrCat - Single Play
+        </title>
+        <link type="text/css" rel="stylesheet" href="{% static 'game-styling.css' %}">
+    </head>
+    <body>
+        <div class="loading-screen">
+            <div>
+                <div class="loading-img-container">
+                    <img src="{% static 'resources/dog-face.jpg' %}">
+                    <img src="{% static 'resources/cat-face.jpg' %}" class="cat-face-image">
+                </div>
+                <div>
+                    <span class="first-letter">L</span>
+                    <span class="second-letter">O</span>
+                    <span class="third-letter">A</span>
+                    <span class="fourth-letter">D</span>
+                    <span class="fifth-letter">I</span>
+                    <span class="sixth-letter">N</span>
+                    <span class="seventh-letter">G</span>
+                    <span class="eighth-letter">.</span>
+                    <span class="ninth-letter">.</span>
+                    <span class="tenth-letter">.</span>
+                </div>
+            </div>
+        </div>
+        <div class="logo"></div>
+        <div class="score-wrapper">
+            <span id="current-score"></span>/10
+        </div>
+        <div class="image-wrapper">
+            <img class="question-image" id="question-img">
+        </div>
+        <div class="buttons-wrapper">
+            <button class="dog-button" id="dog-btn" onclick="sendAnswer('dog')">
+                <div class="paw-hover">
+                    <img src="{% static 'resources/paw.png' %}">
+                </div>
+                Dog
+            </button>
+            <button class="cat-button" id="cat-btn" onclick="sendAnswer('cat')">
+                Cat
+                <div class="paw-hover">
+                    <img src="{%  static 'resources/paw.png' %}">
+                </div>
+            </button>
+        </div>
+        
+        <script src="{% static 'js/get_cookie.js' %}"></script>
+        <script src="{% static 'js/questions_class.js' %}"></script>
+        <script src="{% static 'js/get_question.js' %}"></script>
+    </body>
 </html>

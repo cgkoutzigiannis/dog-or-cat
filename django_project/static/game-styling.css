@@ -25,6 +25,100 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.loading-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 10;
+}
+
+.loading-screen > div {
+    background-color: var(--background);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 40%;
+    height: 55%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-img-container {
+    position: relative;
+    width: 100%;
+    height: 15rem;
+}
+
+.loading-screen img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 15rem;
+}
+
+.cat-face-image {
+    opacity: 0;
+
+    animation: show-cat-face 4s linear 2s infinite;
+}
+
+.loading-screen span {
+    display: inline-block;
+    font-size: 2rem;
+
+    /* animation: jumping-letter 3s ease-out infinite; */
+    animation-name: jumping-letter;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+.first-letter {
+    animation-delay: 0s;
+}
+
+.second-letter {
+    animation-delay: 0.3s;
+}
+
+.third-letter {
+    animation-delay: 0.6s;
+}
+
+.fourth-letter {
+    animation-delay: 0.9s;
+}
+
+.fifth-letter {
+    animation-delay: 1.2s;
+}
+
+.sixth-letter {
+    animation-delay: 1.5s;
+}
+
+.seventh-letter {
+    animation-delay: 1.8s;
+}
+
+.eighth-letter {
+    animation-delay: 2.4s;
+}
+
+.ninth-letter {
+    animation-delay: 2.7s;
+}
+
+.tenth-letter {
+    animation-delay: 3s;
+}
+
 .logo {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -33,7 +127,7 @@ body {
     transform: translate(0%, 0%);
     left: 10px;
     top: 10px;
-    background-image: url(../resources/LOGO.png);
+    background-image: url(../static/resources/LOGO.png);
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: 50%;
@@ -42,6 +136,15 @@ body {
 
     animation: logo-zoom-out 1.5s ease-out 0.5s  forwards;
     z-index: 2;
+}
+
+.image-wrapper {
+    text-align: center;
+}
+
+.question-image {
+    width: 60%;
+    max-height: 80vh;
 }
 
 .dog-button, .cat-button {
@@ -88,4 +191,23 @@ body {
 .dog-button:hover .paw-hover, .cat-button:hover .paw-hover {
     opacity: 1;
     transition-duration: 0.5s;
+}
+
+@keyframes show-cat-face {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes jumping-letter {
+    7% {
+        transform: translateY(-100%);
+        color: var(--logo-secondary-blue-color);
+    }
+    15%, 100% {
+        transform: translate(0);
+    }
 }
