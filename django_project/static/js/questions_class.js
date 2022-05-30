@@ -6,11 +6,14 @@ class Questions {
     }
 
     next() {
-        return this.questionsArray[++this.i]
+        if (++this.i == this.questionsArray.lenght) return null
+        else return this.questionsArray[this.i]
     }
 
     current() {
         if (this.i == -1) return null
         else return this.questionsArray[this.i]
     }
+
+    
 }

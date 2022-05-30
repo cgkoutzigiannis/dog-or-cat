@@ -28,30 +28,56 @@
                 </div>
             </div>
         </div>
+
+        <div class="end-of-game-wrapper" id="end-of-game">
+            <div class="end-of-game-menu">
+                <div class="game-result">
+                    <span>Your Score Is:</span> <br><br>
+                    <span id="final-score">0/3</span>
+                </div>
+                <div class="game-choices">
+                    <button onclick="location.reload();">Play Again</button> <br>
+                    <button>Main Menu</button> <br>
+                    <button>Leaderboard</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="correct-message answer-message" id="correct-message">
+            <i>Correct 🥳</i>
+        </div>
+
+        <div class="wrong-message answer-message" id="wrong-message">
+            <i>Wrong 🥺</i>
+        </div>
+
         <div class="logo"></div>
-        <div class="score-wrapper">
-            <span id="current-score"></span>/10
-        </div>
-        <div class="image-wrapper">
-            <img class="question-image" id="question-img">
-        </div>
-        <div class="buttons-wrapper">
-            <button class="dog-button" id="dog-btn" onclick="sendAnswer('dog')">
-                <div class="paw-hover">
-                    <img src="{% static 'resources/paw.png' %}">
-                </div>
-                Dog
-            </button>
-            <button class="cat-button" id="cat-btn" onclick="sendAnswer('cat')">
-                Cat
-                <div class="paw-hover">
-                    <img src="{%  static 'resources/paw.png' %}">
-                </div>
-            </button>
+
+        <div class="game-plat">
+            <div class="score-wrapper">
+                <span id="current-score"></span>/<span id="total-questions"></span>
+            </div>
+            <div class="image-wrapper">
+                <img class="question-image" id="question-img">
+            </div>
+            <div class="buttons-wrapper">
+                <button class="dog-button" id="dog-btn" onclick="sendAnswer('dog')">
+                    <div class="paw-hover">
+                        <img src="{% static 'resources/paw.png' %}">
+                    </div>
+                    Dog
+                </button>
+                <button class="cat-button" id="cat-btn" onclick="sendAnswer('cat')">
+                    Cat
+                    <div class="paw-hover">
+                        <img src="{%  static 'resources/paw.png' %}">
+                    </div>
+                </button>
+            </div>
         </div>
         
         <script src="{% static 'js/get_cookie.js' %}"></script>
         <script src="{% static 'js/questions_class.js' %}"></script>
-        <script src="{% static 'js/get_question.js' %}"></script>
+        <script src="{% static 'js/game.js' %}"></script>
     </body>
 </html>
