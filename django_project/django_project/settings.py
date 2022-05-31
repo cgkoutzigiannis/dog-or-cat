@@ -135,3 +135,4 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR.joinpath("media")
 
 DOG_API_KEY = os.environ.get("DOG_API_KEY")
+CAT_API_KEY = os.environ.get("CAT_API_KEY")
