@@ -45,9 +45,7 @@ function nextQuestion(question) {
 
   questionImage.src =
     "http://127.0.0.1:8000" +
-    question["blurred_image_url"].slice(0, 7) +
-    "animals/" +
-    question["blurred_image_url"].slice(7);
+    question["blurred_image_url"]
 }
 
 function sendAnswer(answer) {
