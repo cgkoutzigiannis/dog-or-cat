@@ -32,7 +32,7 @@
         <div class="end-of-game-wrapper" id="end-of-game">
             <div class="end-of-game-menu">
                 <div class="game-result">
-                    <span>Your Score Is:</span> <br><br>
+                    <span>Your Score:</span> <br><br>
                     <span id="final-score">0/3</span>
                 </div>
                 <div class="game-choices">
@@ -44,7 +44,7 @@
         </div>
 
         <div class="correct-message answer-message" id="correct-message">
-            <i>Correct 🥳</i>
+            <i>Correct 🥳 (+100 Points)</i>
         </div>
 
         <div class="wrong-message answer-message" id="wrong-message">
@@ -55,7 +55,12 @@
 
         <div class="game-plat">
             <div class="score-wrapper">
-                <span id="current-score"></span>/<span id="total-questions"></span>
+                <span id="total-lives">
+                    <img src="{% static 'resources/heart.jpg' %}" class="life">
+                    <img src="{% static 'resources/heart.jpg' %}" class="life">
+                    <img src="{% static 'resources/heart.jpg' %}" class="life">
+                </span><br>
+                <span id="current-score"></span>
             </div>
             <div class="image-wrapper">
                 <img class="question-image" id="question-img">

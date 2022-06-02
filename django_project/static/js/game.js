@@ -1,13 +1,20 @@
 let questions;
 
+// Elements edited during the game
 const questionImage = document.getElementById("question-img");
 const scoreSpan = document.getElementById("current-score");
 const totalSpan = document.getElementById("total-questions");
 const correctMessageDiv = document.getElementById("correct-message");
 const wrongMessageDiv = document.getElementById("wrong-message");
-const numOfPhotos = '3'
+const numOfPhotos = '6'
 
+const lives = document.getElementsByClassName("life");
+
+// Important variables
 waitingForNextQuestion = false;
+questionsCounter = 0;
+
+
 
 document.addEventListener("DOMContentLoaded", async function () {
   getQuestions(numOfPhotos)
@@ -51,12 +58,21 @@ function nextQuestion(question) {
 function sendAnswer(answer) {
   if(!waitingForNextQuestion){
     waitingForNextQuestion = true
+
+    if (++questionsCounter == 2)
+      getQuestions(3)
+      .then( data => {
+        questions.addQuestions(data)
+        questionsCounter = 0
+      })
+    
+
     checkAnswer(answer)
       .then( data => {
         console.log(data)
         console.log(data.answer)
+        console.log(questions.getNumberOfQuestions() - questions.i + " questions left!!")
         questionImage.src = "http://127.0.0.1:8000" + data["original_image_url"]
-        // alert(data["answer"]);
         if (data.answer == 'True') {
           correctAnswer()
         }
@@ -102,26 +118,28 @@ function newGame(data) {
   question = questions.next()
   nextQuestion(question)
   scoreSpan.innerHTML = '0'
-  totalSpan.innerHTML = questions.questionsArray.length
 }
 
 function correctAnswer() {
   console.log("Correct!")
-  scoreSpan.innerHTML = ++questions.correctAnswers
+  scoreSpan.innerHTML = questions.correct()
   correctMessageDiv.classList.add("show-message")
 }
 
 function wrongAnswer() {
   console.log("Wrooong :(")
   wrongMessageDiv.classList.add("show-message")
+  lives[questions.getWrongAnswers()].src = "/static/resources/no-heart.jpg"
+  if (questions.false() >= 3)
+    setTimeout(endGame, 3000)
 }
 
 function endGame() {
-  console.log(`Your score is: ${questions.correctAnswers}/${questions.questionsArray.length}`)
+  console.log(`Your score is: ${questions.getScore()}`)
 
   endOfGamePlat = document.getElementById("end-of-game");
   finalScoreSpan = document.getElementById("final-score");
 
   endOfGamePlat.style.display = "initial"
-  finalScoreSpan.innerText = `${questions.correctAnswers}/${questions.questionsArray.length}`
+  finalScoreSpan.innerText = `${questions.getScore()}`
 }

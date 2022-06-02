@@ -34,6 +34,10 @@ body {
 }
 
 .score-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 1.8rem;
     font-style: italic;
 }
@@ -114,6 +118,10 @@ body {
     font-size: 3.5rem;
     font-weight: bolder;
     color: var(--logo-main-blue-color);
+}
+
+.life {
+    width: 3rem;
 }
 
 .game-choices {
