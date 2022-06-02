@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import index, game, get_question, start_game, check_answer
+from .views import index, game, start_game, check_answer
 
 urlpatterns = [
     path("", index, name="home"),
