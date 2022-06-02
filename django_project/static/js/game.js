@@ -141,5 +141,5 @@ function endGame() {
   finalScoreSpan = document.getElementById("final-score");
 
   endOfGamePlat.style.display = "initial"
-  finalScoreSpan.innerText = `${questions.getScore()}`
+  finalScoreSpan.innerText = `🎊${questions.getScore()}🎊`
 }
