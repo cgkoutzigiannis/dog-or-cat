@@ -15,19 +15,19 @@
                 {% csrf_token %}
                 <div class="input-field-wrapper">
                     <label class="username-label">Username</label> <br>
-                    <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username" id="id_username" required>
                 </div>
                 <div class="input-field-wrapper">
                     <label class="username-label">Email</label> <br>
-                    <input type="text" name="email" placeholder="Email">
+                    <input type="text" name="email" placeholder="Email" id="id_email" required>
                 </div>
                 <div class="input-field-wrapper">
                     <label>Password</label> <br>
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password1" placeholder="Password" id="id_password1" required>
                 </div>
                 <div class="input-field-wrapper">
                     <label class="username-label">Repeat Password</label> <br>
-                    <input type="password" name="rep-password" placeholder="Repeat Password">
+                    <input type="password" name="password2" placeholder="Repeat Password" id="id_password2" required>
                 </div><br>
                 <button type="submit">Sign up</button>
             </form>
