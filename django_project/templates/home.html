@@ -13,7 +13,7 @@
     </head>
     {% if user.is_authenticated %}
     <body>
-        <div class="logo"></div>
+        <div class="logo" onclick=location.href="{% url 'home' %}"></div>
         <!-- <div class="user">
             Username
             <div class="other-options">

@@ -231,6 +231,8 @@ body {
 
     animation: logo-zoom-out 1.5s ease-out 0.5s  forwards;
     z-index: 2;
+
+    cursor: pointer;
 }
 
 .answer-message {
