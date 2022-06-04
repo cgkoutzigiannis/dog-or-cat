@@ -7,11 +7,14 @@
         </title>
         <link type="text/css" rel="stylesheet" href="{% static 'home-styling.css' %}">
         <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/home-styling.css' %}">
+        
+        <link type="text/css" rel="stylesheet" href="{% static 'navbar.css' %}">
+        <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/navbar.css' %}">
     </head>
     {% if user.is_authenticated %}
     <body>
         <div class="logo"></div>
-        <div class="user">
+        <!-- <div class="user">
             Username
             <div class="other-options">
                 <div>
@@ -26,8 +29,44 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <nav>
+            <a href="{% url 'home' %}" class="active">Home</a>
+            <a>Profile</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
         
+        <div class="about-wrapper">
+            <div class="about-window">
+                <div class="close-button-area">
+                    <div onclick="closeAbout()">&times</div>
+                </div>
+                <div class="about-content">
+                    <h1>About Dog Or Cat:</h1>
+                    <p>
+                        Welcome to <b><i>"Dog Or Cat"</i></b>. This is a guessing game that you have to distinguish wether in a blured image is depicted a Dog or a Cat.
+                    </p><br>
+                    <h2> - Single Player</h2>
+                    <p>
+                        You have 3 lives in total and you lose one each time you make a wrong guess. For each correct answer you get 100 points. 
+                        The goal is to get as many points as you can to reach the top of the leaderboard.
+                    </p> <br>
+                    <h2> - Time Attack</h2>
+                    <p>
+                        Clock is ticking! You have <u>1 minute</u> to answer as many questions as you can! For each correct answer you get 100 points. 
+                        If you can guess right 3 pictures in a row you are in a <b><i>Streak</i></b> and now each correct answer rewards you with 300 points!
+                        Making a wrong guess will put an end to your Streak. Until your next one of course.
+                    </p> <br>
+                    <h2> - Multiplayer (Coming soon)</h2>
+                    <p>
+                        Challenge your friends in a batch of 12 pictures. You play first and your score out of 12 is the one they have to beat. Both got the same score?
+                        The one who did it faster gets the W!
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- <img src="{% static 'resources/bone.png"> -->
 
         <div class="menu">
@@ -37,6 +76,15 @@
                         Single Player
                         <div class="selection-logos">
                             <img src="{% static 'resources/white-paw.png' %}">
+                        </div>
+                    </div> 
+                </a>
+                <br>
+                <a href="{% url 'game' %}">
+                    <div class="menu-button">
+                        Time Attack
+                        <div class="selection-logos">
+                            <img src="{% static 'resources/time-attack.png' %}">
                         </div>
                     </div> 
                 </a>
@@ -54,7 +102,7 @@
                         <img src="{% static 'resources/trophie.png' %}">
                     </div>
                 </div> <br>
-                <div class="menu-button">
+                <div class="menu-button" onclick="aboutOnClick()">
                     About
                     <div class="selection-logos">
                         <img src="{% static 'resources/about.png' %}">
@@ -69,11 +117,41 @@
         <div class="sneak-image sneak-cat">
             <img src="{% static 'resources/cat-sneak.png' %}">
         </div>
+
+        <script src="{% static 'js/show_about.js' %}"></script>
     </body>
 
     {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
+        <div class="about-wrapper" style="display: flex">
+            <div class="about-window">
+                <div class="not-logged-wrapper">
+                    <img src="{% static 'resources/caution.png' %}">
+                    <span>You are not currently logged in</span>
+                    <a href="{% url 'login' %}">Log in</a>
+                </div>
+                <div class="about-content">
+                    <h1>About Dog Or Cat:</h1>
+                    <p>
+                        Welcome to <b><i>"Dog Or Cat"</i></b>. This is a guessing game that you have to distinguish wether in a blured image is depicted a Dog or a Cat.
+                    </p>
+                    <h2> - Single Player</h2>
+                    <p>
+                        You have 3 lives in total and you lose one each time you make a wrong guess. For each correct answer you get 100 points. 
+                        The goal is to get as many points as you can to reach the top of the leaderboard.
+                    </p>
+                    <h2> - Time Attack</h2>
+                    <p>
+                        Clock is ticking! You have <u>1 minute</u> to answer as many questions as you can! For each correct answer you get 100 points. 
+                        If you can guess right 3 pictures in a row you are in a <b><i>Streak</i></b> and now each correct answer rewards you with 300 points!
+                        Making a wrong guess will put an end to your Streak. Until your next one of course.
+                    </p>
+                    <h2> - Multiplayer (Coming soon)</h2>
+                    <p>
+                        Challenge your friends in a batch of 12 pictures. You play first and your score out of 12 is the one they have to beat. Both got the same score?
+                        The one who did it faster gets the W!
+                    </p>
+                </div>
+            </div>
+        </div>
     {% endif %}
 </html>

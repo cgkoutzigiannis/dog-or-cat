@@ -1,0 +1,32 @@
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+nav a {
+    font-size: 2rem;
+    font-weight: bolder;
+    text-decoration: none;
+    display: block;
+    border-bottom: 4px solid var(--logo-main-blue-color);
+    color: var(--logo-main-blue-color);
+    padding: 10px 20px;
+    margin-left: 10px;
+    transition-duration: 0.5s;
+
+    cursor: pointer;
+}
+
+nav a:hover {
+    padding-bottom: 25px;
+    color: var(--logo-secondary-blue-color);
+    border-bottom-color: var(--logo-secondary-blue-color);
+    transition-duration: 0.5s;
+}
+
+.active {
+    color: var(--logo-main-blue-color);
+    border-bottom: 4px solid var(--logo-main-blue-color);
+}

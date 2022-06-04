@@ -5,7 +5,11 @@
         <title>
             DogOrCat - Single Play
         </title>
+
         <link type="text/css" rel="stylesheet" href="{% static 'game-styling.css' %}">
+
+        <link type="text/css" rel="stylesheet" href="{% static 'navbar.css' %}">
+        <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/navbar.css' %}">
     </head>
     <body>
         <div class="loading-screen">
@@ -29,6 +33,7 @@
             </div>
         </div>
 
+        
         <div class="end-of-game-wrapper" id="end-of-game">
             <div class="end-of-game-menu">
                 <div class="game-result">
@@ -53,6 +58,12 @@
 
         <div class="logo"></div>
 
+        <nav>
+            <a href="{% url 'home' %}" class="active">Home</a>
+            <a>Profile</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+
         <div class="game-plat">
             <div class="score-wrapper">
                 <span id="total-lives">
@@ -70,10 +81,11 @@
                     <div class="paw-hover">
                         <img src="{% static 'resources/paw.png' %}">
                     </div>
-                    Dog
+                    🐶
                 </button>
+                 OR 
                 <button class="cat-button" id="cat-btn" onclick="sendAnswer('cat')">
-                    Cat
+                    🐱
                     <div class="paw-hover">
                         <img src="{%  static 'resources/paw.png' %}">
                     </div>

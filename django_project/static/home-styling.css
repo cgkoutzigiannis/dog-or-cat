@@ -38,13 +38,111 @@ body {
     background-repeat: no-repeat;
     background-position: 50%;
 
+    cursor: pointer;
     /* background-color: var(--background); */
 
     animation: logo-zoom-out 1.5s ease-out 0.5s  forwards;
     z-index: 2;
 }
 
-.user {
+nav {
+    transform: translate(0%, -200%);
+    animation: user-options-reveal 1s ease-out 1.5s forwards;
+}
+
+.about-wrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.about-window {
+    background-color: var(--background);
+    padding: 10px;
+}
+
+.close-button-area {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    font-weight: bolder;
+    color: white;
+}
+
+.close-button-area div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    background-color: red;
+    padding: 5px 8px;
+}
+
+.about-content {
+    overflow-y: scroll;
+    width: 50em;
+    margin: 50px;
+    height: 25em;
+    padding: 0 15px;
+}
+
+.not-logged-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-logged-wrapper img {
+    height: 2rem;
+}
+
+.not-logged-wrapper span {
+    margin-left: 3em;  
+}
+
+.not-logged-wrapper a {
+    display: block;
+    text-decoration: none;
+    margin-left: 3em;
+    background-color: var(--logo-main-blue-color);
+    color: white;
+    padding: 10px 20px;
+}
+
+.not-logged-wrapper a:hover {
+    background-color: var(--logo-secondary-blue-color);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 20px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--logo-secondary-blue-color); 
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--logo-main-blue-color); 
+  }
+
+/* .user {
     background-color: var(--logo-secondary-blue-color);
     color: white;
     font-size: 2.2rem;
@@ -66,7 +164,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    /* height: 100%; */
+    /* height: 100%; 
     transform: translate(0, 105%);
 }
 
@@ -85,7 +183,7 @@ body {
 
 .other-options img {
     height: 1.5rem;
-}
+} */
 
 .menu {
     position: relative;
@@ -167,11 +265,11 @@ body {
 
 @keyframes logo-zoom-out {
     100% {
-        width: 20%;
-        height: 12rem;
+        width: 8rem;
+        height: 9rem;
         transform: translate(0%, 0%);
-        left: 10px;
-        top: 10px;
+        left: 5px;
+        top: 5px;
     }
 }
 
