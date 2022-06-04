@@ -37,6 +37,28 @@ body {
     height: 100vh;
 }
 
+.errorlist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 3px 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.errorlist div {
+    width: 100%;
+    border: 1.5px solid rgba(180, 0, 0, 1);
+    border-radius: 50px;
+    background-color: rgba(220, 0, 0, 0.8);
+
+    color: white;
+    padding: 3px 15px;
+    margin-bottom: 0.5em;
+}
+
 .login {
     display: flex;
     justify-content: center;

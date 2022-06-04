@@ -52,6 +52,21 @@
             </div>
         </div>
 
+        {% block content %}
+            <div class="errorlist">
+                {% for error in form.non_field_errors %} 
+                    <div>{{error}}</div>
+                {% endfor %}
+
+                {% for field in form %} 
+                    {% for error in field.errors %} 
+                        <div>{{error}}</div>
+                    {% endfor %}
+                {% endfor %}
+
+            </div>
+        {% endblock content %}
+
         <script src="{% static 'js/image-changer.js' %}"></script>
     </body>
 </html>
