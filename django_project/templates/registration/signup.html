@@ -36,6 +36,15 @@
             <div class="create-account">
                 Already have an account? <a href="{% url 'login' %}">Login</a>
             </div>
+            {% block content %}
+            <div class="errorlist">
+                {% for field in form %} 
+                    {% for error in field.errors %}
+                        <div>{{error}}</div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            {% endblock content %}
         </div>
     </body>
 </html>
