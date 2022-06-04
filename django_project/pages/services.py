@@ -28,14 +28,12 @@ def get_data(total_number, game):
     cat_entries = int(total_number) - dog_entries
     # Dog API request.
     dog_response = get_images(True, dog_entries, game)
-    
     # Cat API request.
     cat_response = get_images(False, cat_entries, game)
     # Concatenate requests.
     response_list = cat_response + dog_response
     # Shuffle request list.
-
-    return response_list
+    return shuffle(response_list)
 
 def get_images(isDog, entries_num, game):
     # Initialize variables.
@@ -75,8 +73,8 @@ def get_images(isDog, entries_num, game):
         file_name = file_name.replace(".jpg", "")
         blob = BytesIO()
         blur_blob = BytesIO()
-        image.save(blob, "JPEG")
-        blurred_image.save(blur_blob, "JPEG")
+        image.convert('RGB').save(blob, "JPEG")
+        blurred_image.convert('RGB').save(blur_blob, "JPEG")
         question = Question(animal_type=animal_type)
         question.original_image = File(blob, name=(file_name + ".jpeg"))
         question.blurred_image = File(blur_blob, name=(file_name + "_blurred.jpeg"))
