@@ -6,7 +6,7 @@ const scoreSpan = document.getElementById("current-score");
 const totalSpan = document.getElementById("total-questions");
 const correctMessageDiv = document.getElementById("correct-message");
 const wrongMessageDiv = document.getElementById("wrong-message");
-const numOfPhotos = '6'
+const numOfPhotos = 6
 
 const lives = document.getElementsByClassName("life");
 
@@ -17,27 +17,35 @@ questionsCounter = 0;
 
 
 document.addEventListener("DOMContentLoaded", async function () {
-  getQuestions(numOfPhotos)
+
+  const response = await fetch("http://127.0.0.1:8000/start_game/", {
+    method: "POST", // or 'PUT'
+    mode: "same-origin",
+    headers: {
+      "X-CSRFToken": csrftoken
+    }})
+
+  response.json()
+  .then( data => {
+    const game_id = data.gameID
+
+    console.log(game_id)
+
+    getQuestions(game_id, numOfPhotos)
     .then( data => {
       loadingScreen = document.getElementsByClassName("loading-screen")[0];
       loadingScreen.style.display = "none";
 
       newGame(data)
     })
+  })
+
+  
 
 });
 
-async function getQuestions(numberOfQuestions) {
-  const response = await fetch("http://127.0.0.1:8000/start_game/", {
-    method: "POST", // or 'PUT'
-    mode: "same-origin",
-    headers: {
-      "X-CSRFToken": csrftoken,
-    },
-    body: JSON.stringify({
-      questionsNumber: numberOfQuestions
-    })
-  })
+async function getQuestions(game_id, numberOfQuestions) {
+  const response = await fetch(`http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}`)
 
   return response.json()
 }
@@ -114,6 +122,7 @@ async function sleep(fn, ...args) {
 }
 
 function newGame(data) {
+  console.log(data)
   questions = new Questions(data)
   question = questions.next()
   nextQuestion(question)
