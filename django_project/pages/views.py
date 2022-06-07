@@ -76,8 +76,11 @@ def get_images(request, game_id, images_num):
     Create 10 new Question instances and return the images
     on the game with ID 2.
     """
+    print(game_id)
+    print(images_num)
     game = get_object_or_404(SinglePlayerGame, pk=game_id)
     response_list = get_data(images_num, game)
+    print(response_list)
     return JsonResponse(response_list, safe=False)
 
 
@@ -94,7 +97,7 @@ def leaderboard(request):
             "points": game.correct_anwsers * 100
         })
     
-    user_games = SinglePlayerGame.objects.filter(user=request.user)
+    user_games = SinglePlayerGame.objects.filter(user=request.user).order_by('-correct_anwsers')[:1]
     user_games_points = []
     for user_game in user_games:
         user_games_points.append({

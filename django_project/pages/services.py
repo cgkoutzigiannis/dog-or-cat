@@ -24,16 +24,36 @@ CAT_HEADERS = {"x-api-key": CAT_API_KEY}
 def get_data(total_number, game):
     # Get total number of entries.
     # Split number of entries randomly.
+    
     dog_entries = randint(1, int(total_number))
     cat_entries = int(total_number) - dog_entries
+    print("---------------GET DATA---------------")
+    print(total_number)
+    print(dog_entries)
+    print(cat_entries)
+    print("---------------GET DATA---------------")
+
     # Dog API request.
     dog_response = get_images(True, dog_entries, game)
     # Cat API request.
     cat_response = get_images(False, cat_entries, game)
+    print("---------------DOG AND CAT RESPONSES---------------")
+    print(dog_response)
+    print(cat_response)
+    print("---------------DOG AND CAT RESPONSES---------------")
+    
     # Concatenate requests.
     response_list = cat_response + dog_response
     # Shuffle request list.
-    return shuffle(response_list)
+
+    print("---------------PRE SHUFFLE RESPONSE LIST---------------")
+    print(response_list)
+    print("---------------PRE SHUFFLE RESPONSE LIST---------------")
+    print("---------------RESPONSE LIST---------------")
+    print(shuffle(response_list))
+    print("---------------RESPONSE LIST---------------")
+    shuffle(response_list)
+    return response_list
 
 def get_images(isDog, entries_num, game):
     # Initialize variables.
@@ -55,7 +75,9 @@ def get_images(isDog, entries_num, game):
             base_url, headers=headers
         )
         api_response = api_response.json()
-
+        print("---------------SERVICES---------------")
+        print(api_response)
+        print("---------------SERVICES---------------")
         # Make API request for image.
         image_url = api_response[0]["url"]
         image = None
@@ -80,9 +102,18 @@ def get_images(isDog, entries_num, game):
         question.blurred_image = File(blur_blob, name=(file_name + "_blurred.jpeg"))
         question.game = game
         question.save()
+        print("---------------QUESTION OBJECT---------------")
+        print(question.pk)
+        print(question.blurred_image.url)
+        print("---------------QUESTION OBJECT---------------")
         number_of_images -= 1
         response.append({
             "blurred_image_url": f"{question.blurred_image.url}",
             "question_id": f"{question.pk}"
         })
+    print("---------------QUESTION OBJECT---------------")
+    print(question.pk)
+    print(question.blurred_image.url)
+    print("---------------QUESTION OBJECT---------------")
+    print(response)
     return response
