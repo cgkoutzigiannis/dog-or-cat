@@ -77,4 +77,5 @@ ol li:nth-child(5)::marker {
 .user-info-wrapper {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }

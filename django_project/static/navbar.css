@@ -14,7 +14,7 @@ nav a {
     color: var(--logo-main-blue-color);
     padding: 10px 20px;
     margin-left: 10px;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
 
     cursor: pointer;
 }
@@ -23,7 +23,7 @@ nav a:hover {
     padding-bottom: 9px;
     color: var(--logo-secondary-blue-color);
     border-bottom-color: var(--logo-secondary-blue-color);
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
 }
 
 .active {
