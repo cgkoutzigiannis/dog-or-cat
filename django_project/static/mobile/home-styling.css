@@ -8,47 +8,32 @@ body {
     height: 70vh;
 }
 
-.user {
-    background-color: var(--logo-secondary-blue-color);
-    color: white;
+.about-window {
+    max-width: 100vw;
+}
+
+.about-content {
+    font-size: 2rem;
+    width: 23em;
+    height: 35em;
+}
+
+.close-button-area div {
     font-size: 4rem;
-    font-weight: bold;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    position: relative;
-    padding: 30px 40px;
-
-    transform: translate(0%, -200%);
-    animation: user-options-reveal 1s ease-out 1.5s forwards;
+    padding: 5px 12px;
 }
 
-.other-options {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    /* height: 100%; */
-    transform: translate(0, 105%);
+.not-logged-wrapper img {
+    height: 3.8rem;
 }
 
-.other-options div{
-    height: 100px;
-    width: 100px;
-    border-radius: 50px;
-    background-color: var(--logo-main-blue-color);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
+.not-logged-wrapper span {
+    font-size: 2em;  
 }
 
-.other-options img {
-    height: 3rem;
+.not-logged-wrapper a {
+    font-size: 2.5rem;
+    padding: 10px 20px;
 }
 
 .menu {

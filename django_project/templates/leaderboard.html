@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dog Or Cat - Leaderboard</title>
 
     <link type="text/css" rel="stylesheet" href="{% static 'base-styling.css' %}">
@@ -19,9 +19,9 @@
     
     {% include 'logo.html' %}
     {% include 'navbar.html' %}
-    <br><br>
+
     <div class="leaderboard-type-header">
-        Global 🌍
+        Global 🌍🏆
     </div>
 
     <ol start='0'>
@@ -44,12 +44,17 @@
 
 
     <div class="leaderboard-type-header">
-        My Games 💪
+        My Best Score 💪
     </div>
 
     <ul>
     {% for game in user_games %}
-        <li>User: {{game.user}}, Points: {{game.points}}</li>
+        <li>
+            <div class="user-info-wrapper">
+                <span>{{game.user}}</span>
+                <span class="leaderboard-score">{{game.points}}</span>
+            </div>
+        </li>
     {% endfor %}
     </ul>
 </body>

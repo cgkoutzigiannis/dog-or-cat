@@ -29,14 +29,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   .then( data => {
     const game_id = data.gameID
 
-    console.log(game_id)
-
     getQuestions(game_id, numOfPhotos)
     .then( data => {
       loadingScreen = document.getElementsByClassName("loading-screen")[0];
       loadingScreen.style.display = "none";
 
-      newGame(data)
+      newGame(game_id, data)
     })
   })
 
@@ -45,12 +43,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 async function getQuestions(game_id, numberOfQuestions) {
-  link = `http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}/`
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}/`)
 
-  console.log(link)
-  const response = await fetch(`http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}/`)
-
-  return response.json()
+    return response.json()
+  } catch (error) {
+    return getQuestions(game_id, numberOfQuestions)
+  }
 }
 
 function nextQuestion(question) {
@@ -71,7 +70,7 @@ function sendAnswer(answer) {
     waitingForNextQuestion = true
 
     if (++questionsCounter == 2)
-      getQuestions(3)
+      getQuestions(questions.getGameId(), 3)
       .then( data => {
         questions.addQuestions(data)
         questionsCounter = 0
@@ -80,8 +79,6 @@ function sendAnswer(answer) {
 
     checkAnswer(answer)
       .then( data => {
-        console.log(data)
-        console.log(data.answer)
         console.log(questions.getNumberOfQuestions() - questions.i + " questions left!!")
         questionImage.src = "http://127.0.0.1:8000" + data["original_image_url"]
         if (data.answer == 'True') {
@@ -124,9 +121,8 @@ async function sleep(fn, ...args) {
   return fn(...args);
 }
 
-function newGame(data) {
-  console.log(data)
-  questions = new Questions(data)
+function newGame(game_id, data) {
+  questions = new Questions(game_id, data)
   question = questions.next()
   nextQuestion(question)
   scoreSpan.innerHTML = '0'

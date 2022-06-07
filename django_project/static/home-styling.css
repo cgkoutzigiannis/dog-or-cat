@@ -24,7 +24,7 @@ body {
 
 nav {
     transform: translate(0%, -200%);
-    animation: user-options-reveal 1s ease-out 1.5s forwards;
+    animation: navbar-reveal 1s ease-out 1.5s forwards;
 }
 
 .about-wrapper {
@@ -100,67 +100,24 @@ nav {
 
 ::-webkit-scrollbar {
     width: 7px;
-  }
+}
   
   /* Track */
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey; 
     border-radius: 20px;
-  }
+}
    
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: var(--logo-secondary-blue-color); 
     border-radius: 20px;
-  }
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: var(--logo-main-blue-color); 
-  }
-
-/* .user {
-    background-color: var(--logo-secondary-blue-color);
-    color: white;
-    font-size: 2.2rem;
-    font-size: bolder;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    position: relative;
-    padding: 20px 30px;
-
-    transform: translate(0%, -200%);
-    animation: user-options-reveal 1s ease-out 1.5s forwards;
 }
-
-.other-options {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    /* height: 100%; 
-    transform: translate(0, 105%);
-}
-
-.other-options div{
-    height: 50px;
-    width: 50px;
-    border-radius: 50px;
-    background-color: var(--logo-main-blue-color);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-}
-
-.other-options img {
-    height: 1.5rem;
-} */
 
 .menu {
     position: relative;
@@ -169,10 +126,8 @@ nav {
 
 .selections {
     width: 0%;
-    /* transform: translate(-50%, -50%); */
     overflow: hidden;
     animation: selections-reveal 2s ease-out 1.5s forwards;
-    /* background: var(--background); */
 }
 
 .menu-button  {
@@ -256,7 +211,7 @@ nav {
     }
 }
 
-@keyframes user-options-reveal {
+@keyframes navbar-reveal {
     100% {
         transform: translate(0,0);
     }

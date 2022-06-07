@@ -1,0 +1,19 @@
+.logo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 8rem;
+    height: 9rem;
+    transform: translate(0%, 0%);
+    left: 5px;
+    top: 5px;
+    background-image: url(../static/resources/LOGO.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    /* background-color: var(--background); */
+    z-index: 2;
+
+    cursor: pointer;
+}

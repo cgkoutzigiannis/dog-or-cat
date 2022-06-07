@@ -5,8 +5,10 @@ class Questions {
     #points;
     #wrongAnswers;
     #backToBackCorrect;
+    #game_id;
 
-    constructor(questionsArray){
+    constructor(game_id, questionsArray){
+        this.#game_id = game_id
         this.#questionsArray = questionsArray
         this.i = -1
         this.#correctAnswers = 0
@@ -47,5 +49,9 @@ class Questions {
 
     getWrongAnswers() {
         return this.#wrongAnswers
+    }
+
+    getGameId() {
+        return this.#game_id
     }
 }
