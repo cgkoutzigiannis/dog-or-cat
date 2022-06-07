@@ -1,8 +1,10 @@
 nav {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    overflow: hidden;
 }
 
 nav a {
@@ -29,4 +31,29 @@ nav a:hover {
 .active {
     color: var(--logo-main-blue-color);
     border-bottom: 4px solid var(--logo-main-blue-color);
+}
+
+.rolling-ball {
+    height: 80%;
+    position: absolute;
+    left: -10%;
+    z-index: -1;
+
+    animation: roll-ball 50s linear infinite;
+}
+
+.rolling-ball:first-child {
+    animation-delay: 25s;
+}
+
+.rolling-ball:nth-child(2) {
+    animation-delay: 5s;
+}
+
+@keyframes roll-ball {
+    10%,100% {
+        left: 100%;
+
+        transform: rotateZ(calc(8*360deg));
+    }
 }
