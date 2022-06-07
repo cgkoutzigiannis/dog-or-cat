@@ -20,7 +20,7 @@ nav a {
 }
 
 nav a:hover {
-    padding-bottom: 25px;
+    padding-bottom: 9px;
     color: var(--logo-secondary-blue-color);
     border-bottom-color: var(--logo-secondary-blue-color);
     transition-duration: 0.5s;

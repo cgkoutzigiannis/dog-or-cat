@@ -45,7 +45,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 async function getQuestions(game_id, numberOfQuestions) {
-  const response = await fetch(`http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}`)
+  link = `http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}/`
+
+  console.log(link)
+  const response = await fetch(`http://127.0.0.1:8000/game/${game_id}/images/${numberOfQuestions}/`)
 
   return response.json()
 }

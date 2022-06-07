@@ -1,17 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dog Or Cat - Leaderboard</title>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'base-styling.css' %}">
+
+    <link type="text/css" rel="stylesheet" href="{% static 'leaderboard-styling.css' %}">
+    <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/leaderboard-styling.css' %}">
+        
+    <link type="text/css" rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/navbar.css' %}">
 </head>
 <body>
-    <ol>
+    
+    {% include 'logo.html' %}
+    {% include 'navbar.html' %}
+    <br><br>
+    <div class="leaderboard-type-header">
+        Global 🌍
+    </div>
+
+    <ol start='0'>
+        <li class="header">
+            <div class="user-info-wrapper">
+                <span class="leaderboard-username">User</span>
+                <span class="leaderboard-score header-score">Score</span>
+            </div>
+        </li> <br>
     {% for game in top_games %}
-        <li>User: {{game.user}}, Points: {{game.points}}</li>
+        <li>
+            <div class="user-info-wrapper">
+                <span class="leaderboard-username">{{game.user}}</span>
+                    
+                <span class="leaderboard-score">{{game.points}}</span>
+            </div>
+        </li>
     {% endfor %}
     </ol>
+
+
+    <div class="leaderboard-type-header">
+        My Games 💪
+    </div>
 
     <ul>
     {% for game in user_games %}

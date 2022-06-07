@@ -5,6 +5,8 @@
         <title>
             DogOrCat - Home
         </title>
+        <link type="text/css" rel="stylesheet" href="{% static 'base-styling.css' %}">
+
         <link type="text/css" rel="stylesheet" href="{% static 'home-styling.css' %}">
         <link type="text/css" rel="stylesheet" media="only screen and (max-width: 1000px)" href="{% static 'mobile/home-styling.css' %}">
         
@@ -13,29 +15,10 @@
     </head>
     {% if user.is_authenticated %}
     <body>
-        <div class="logo" onclick=location.href="{% url 'home' %}"></div>
-        <!-- <div class="user">
-            Username
-            <div class="other-options">
-                <div>
-                    <img src="{% static 'resources/settings.png' %}">
-                </div>
-                <div>
-                    <img src="{% static 'resources/profile.png' %}">
-                </div>
-                <div>
-                    <a href="{% url 'logout' %}">
-                        <img src="{% static 'resources/logout.png' %}">
-                    </a>
-                </div>
-            </div>
-        </div> -->
+        
+        {% include 'logo.html' %}
 
-        <nav>
-            <a href="{% url 'home' %}" class="active">Home</a>
-            <a>Profile</a>
-            <a href="{% url 'logout' %}">Logout</a>
-        </nav>
+        {% include 'navbar.html' %}
         
         <div class="about-wrapper">
             <div class="about-window">
@@ -96,12 +79,15 @@
                         <img src="{% static 'resources/white-paw.png' %}">
                     </div>
                 </div> <br>
-                <div class="menu-button">
-                    Leaderboard
-                    <div class="selection-logos">
-                        <img src="{% static 'resources/trophie.png' %}">
+                <a href="{% url 'leaderboard' %}">
+                    <div class="menu-button">
+                        Leaderboard
+                        <div class="selection-logos">
+                            <img src="{% static 'resources/trophie.png' %}">
+                        </div>
                     </div>
-                </div> <br>
+                </a>
+                <br>
                 <div class="menu-button" onclick="aboutOnClick()">
                     About
                     <div class="selection-logos">

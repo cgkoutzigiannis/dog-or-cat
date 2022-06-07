@@ -5,7 +5,7 @@
         <title>
             DogOrCat - Single Play
         </title>
-
+        <link type="text/css" rel="stylesheet" href="{% static 'base-styling.css' %}">
         <link type="text/css" rel="stylesheet" href="{% static 'game-styling.css' %}">
 
         <link type="text/css" rel="stylesheet" href="{% static 'navbar.css' %}">
@@ -56,13 +56,9 @@
             <i>Wrong 🥺</i>
         </div>
 
-        <div class="logo" onclick=location.href="{% url 'home' %}"></div>
+        {% include 'logo.html' %}
 
-        <nav>
-            <a href="{% url 'home' %}" class="active">Home</a>
-            <a>Profile</a>
-            <a href="{% url 'logout' %}">Logout</a>
-        </nav>
+        {% include 'navbar.html' %}
 
         <div class="game-plat">
             <div class="score-wrapper">

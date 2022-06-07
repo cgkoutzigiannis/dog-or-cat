@@ -1,0 +1,80 @@
+.logo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 8rem;
+    height: 9rem;
+    transform: translate(0%, 0%);
+    left: 5px;
+    top: 5px;
+    background-image: url(../static/resources/LOGO.png);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    /* background-color: var(--background); */
+    z-index: 2;
+
+    cursor: pointer;
+}
+
+.leaderboard-type-header {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+ol {    
+    padding: 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50vw;
+
+    border: 3px solid var(--logo-main-blue-color);
+    border-radius: 10px;
+    /* overflow: hidden; */
+}
+
+ol li {
+    width: 100%;
+    font-size: 1.5rem;
+    
+}
+
+li[class = header] {
+    list-style-type: none;
+    font-weight: bolder;
+    color: white;
+
+    background-color: var(--logo-main-blue-color);
+}
+
+.leaderboard-username {
+    /* margin-left: 10%; */
+}
+
+.leaderboard-score {
+    /* margin-right: 10%; */
+}
+
+.leaderboard-score:not(.header-score) {
+    color: var(--logo-secondary-blue-color);
+}
+
+ol li:nth-child(3)::marker {
+    content: "🥇1. ";
+}
+
+ol li:nth-child(4)::marker {
+    content: "🥈2. ";
+}
+
+ol li:nth-child(5)::marker {
+    content: "🥉3. ";
+}
+
+.user-info-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
