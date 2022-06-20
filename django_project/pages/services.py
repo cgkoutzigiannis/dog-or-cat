@@ -67,7 +67,7 @@ def get_images(isDog, entries_num, game):
         # Blur the image.
         try:
             image = Image.open(BytesIO(requests.get(image_url).content))
-            blurred_image = image.filter(ImageFilter.GaussianBlur(40))
+            blurred_image = image.filter(ImageFilter.GaussianBlur(20))
         except ValueError as err:
             print("Found image with wrong mode")
             print(err)
