@@ -7,21 +7,6 @@ from .services import get_data
 def index(request):
     return render(request, "home.html")
 
-# def game(request):
-#     return render(request, "game.html")
-
-# def start_game(request):
-
-#     # Return list
-#     data = json.loads(request.body)
-#     questions_number = data["questionsNumber"]
-#     single_player_game = SinglePlayerGame()
-#     single_player_game.user = request.user
-#     single_player_game.amount_of_questions = int(questions_number)
-#     single_player_game.save()
-#     response_list = get_data(questions_number, single_player_game)
-#     return JsonResponse(response_list, safe=False)
-
 def check_answer(request, question_id):
     """
     Checks if user's answer is correct and increment the correct answer counter.
@@ -76,11 +61,8 @@ def get_images(request, game_id, images_num):
     Create 10 new Question instances and return the images
     on the game with ID 2.
     """
-    print(game_id)
-    print(images_num)
     game = get_object_or_404(SinglePlayerGame, pk=game_id)
     response_list = get_data(images_num, game)
-    print(response_list)
     return JsonResponse(response_list, safe=False)
 
 
