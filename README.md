@@ -9,9 +9,9 @@ Implemented a game where the user is shown a blurred image and has to guess if i
 
 The goal of the game is to make correct guesses. For each guess you get 100 points and you can check your ranking in the leader-board page. Here is how the user is shown the blurred image(blur effect is toned down for demonstration purposes):
 
-![Blurred Image](https://file+.vscode-resource.vscode-cdn.net/home/chris/projects/dog-or-cat/images/blurred.jpg)
+![Blurred Image](images/blurred.jpg "Blurred Image")
 
-Here is a correct guess:  ![Blurred Image](https://file+.vscode-resource.vscode-cdn.net/home/chris/projects/dog-or-cat/images/correct_guess.jpg)
+Here is a correct guess:  ![Blurred Image](images/correct_guess.jpg)
 
 ## Implementation Details
 
